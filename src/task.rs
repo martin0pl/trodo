@@ -11,6 +11,6 @@ impl Task {
 
     pub fn afficher(&self) {
         println!("Affichage de la tâche");
-        println!("Titre : {}",self.titre);
+        println!("Titre : {}",self.title);
     }
 }
