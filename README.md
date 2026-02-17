@@ -4,6 +4,6 @@ An open-source project developed in Rust by Martin Pereira-Lima. Trodo is a term
 
 ## Commands
 
-| Command    | Action                         |
-| :--------: | :----------------------------: |
-| trodo list | Show all tasks without project |
+| Command      | Action                         |
+| :----------: | :----------------------------: |
+| `trodo list` | Show all tasks without project |
