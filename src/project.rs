@@ -12,4 +12,8 @@ impl Project {
             tasks : Vec::new(),
         }
     }
+    
+    pub fn add_task(&mut self, task: Task) {
+        self.tasks.push(task);
+    }
 }
