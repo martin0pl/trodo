@@ -35,6 +35,12 @@ fn main() {
     if args[0] == "list" {
         app.show_tasks();
     }
+    if args[0] == "new" && args[1] == "task" {
+        if args.len() == 3 {
+            app.add_task(Task::new_t(args[2].clone()));
+            println!("Tâche <{}> ajoutée !",args[2]);
+        }
+    }
     else {
         println!("Commande non reconnue");
     }
