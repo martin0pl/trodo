@@ -21,4 +21,10 @@ impl App {
     pub fn add_project(&mut self, project: Project) {
         self.projects.push(project);
     }
+
+    pub fn show_tasks(&self) {
+        for task in &self.tasks {
+            task.afficher();
+        }
+    }
 }
