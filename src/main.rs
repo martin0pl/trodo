@@ -12,6 +12,8 @@ fn main() {
 
     let mut app: App = App::new();
 
+    // Zone des variables de test ----------------------------------
+
     let t1: Task = Task::new_t("Première tâche".to_string());
     let t2: Task = Task::new_t("Deuxieme tâche".to_string());
     let t3: Task = Task::new_t("Troisieme tâche".to_string());
@@ -19,5 +21,7 @@ fn main() {
     app.add_task(t1);
     app.add_task(t2);
     app.add_task(t3);
+
+    // -------------------------------------------------------------
 
 }
