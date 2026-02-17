@@ -11,6 +11,8 @@ use project::Project;
 use app::App;
 
 fn main() {
+    
+    let app: App = App::new();
 
     let t1: Task = Task::new_t("Première tâche".to_string());
 
