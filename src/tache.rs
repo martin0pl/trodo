@@ -1,3 +1,3 @@
-pub struct Tache {
-    nom: String
+pub struct Task {
+    title: String
 }

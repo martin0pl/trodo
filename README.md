@@ -1,8 +1,8 @@
 # Trodo
 
-Open-Source project developed in Rust by Martin Pereira-Lima to create a todo list living in your terminal, everywhere on your device, with local storage
+An open-source project developed in Rust by Martin Pereira-Lima. Trodo is a terminal-based command-line interface (CLI) to manage your to-do list anywhere on your device, with persistent local storage.
 
-## Commandes
+## Commands
 
-| Commandes | Actions |
+| Command   | Action  |
 | :-------: | :-----: |
