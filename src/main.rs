@@ -11,11 +11,15 @@ use project::Project;
 use app::App;
 
 fn main() {
-    
-    let app: App = App::new();
+
+    let mut app: App = App::new();
 
     let t1: Task = Task::new_t("Première tâche".to_string());
+    let t2: Task = Task::new_t("Deuxieme tâche".to_string());
+    let t3: Task = Task::new_t("Troisieme tâche".to_string());
 
-    t1.afficher();
+    app.add_task(t1);
+    app.add_task(t2);
+    app.add_task(t3);
 
 }
