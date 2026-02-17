@@ -1,8 +1,10 @@
 mod task;
 mod project;
+mod app;
 
 use task::Task;
 use project::Project;
+use app::App;
 
 fn main() {
 
