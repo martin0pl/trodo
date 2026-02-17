@@ -8,6 +8,8 @@ use task::Task;
 use project::Project;
 use app::App;
 
+use std::env;
+
 fn main() {
 
     let mut app: App = App::new();
@@ -23,5 +25,18 @@ fn main() {
     app.add_task(t3);
 
     // -------------------------------------------------------------
+
+    let args: Vec<String> = env::args().collect();
+
+    // On ne prend pas le premier argument qui est le nom du programme
+    let args: Vec<String> = args[1..].to_vec();
+
+    // Gestion des commandes
+    if args[0] == "list" {
+        app.show_tasks();
+    }
+    else {
+        println!("Commande non reconnue");
+    }
 
 }
