@@ -34,15 +34,21 @@ fn main() {
         }
         else if args[0] == "new" && args[1] == "task" {
             app.add_task(Task::new_t(args[2].clone()));
-            
+
             app.save(save_file);
-            
+
             println!("Tâche ajoutée et sauvegardée !");
         }
         else if args[0] == "done"{
             let indice = args[1].parse::<usize>().unwrap_or(0);
             app.done_task(indice);
-            
+
+            app.save(save_file);
+        }
+        else if args[0] == "undone"{
+            let indice = args[1].parse::<usize>().unwrap_or(0);
+            app.undone_task(indice);
+
             app.save(save_file);
         }
         else {

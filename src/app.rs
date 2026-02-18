@@ -35,6 +35,10 @@ impl App {
     pub fn done_task(&mut self, num: usize) {
         self.tasks[num].done();
     }
+    
+    pub fn undone_task(&mut self, num: usize) {
+        self.tasks[num].undone();
+    }
 
     pub fn save(&self, filename: &str) {
         let json = serde_json::to_string_pretty(&self).expect("Erreur de sérialisation");

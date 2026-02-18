@@ -31,8 +31,12 @@ impl Task {
             println!("[ ] {}",self.title);
         }
     }
-    
+
     pub fn done(&mut self) {
         self.done = true;
+    }
+
+    pub fn undone(&mut self) {
+        self.done = false;
     }
 }
