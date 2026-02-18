@@ -29,7 +29,8 @@ fn main() {
     let args: Vec<String> = env::args().collect();
 
     // Vérification de si il y a des arguments
-    if args.len() == 1 {
+    if args.len() == 1
+    {
         app.show_tasks();
     }
     else
@@ -38,16 +39,19 @@ fn main() {
         let args: Vec<String> = args[1..].to_vec();
 
         // Gestion des commandes
-        if args[0] == "list" {
+        if args[0] == "list"
+        {
             app.show_tasks();
         }
-        if args[0] == "new" && args[1] == "task" {
+        if args[0] == "new" && args[1] == "task"
+        {
             if args.len() == 3 {
                 app.add_task(Task::new_t(args[2].clone()));
                 println!("Tâche <{}> ajoutée !",args[2]);
             }
         }
-        else {
+        else
+        {
             println!("Commande non reconnue");
         }
     }

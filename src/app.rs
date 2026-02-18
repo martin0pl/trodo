@@ -23,8 +23,8 @@ impl App {
     }
 
     pub fn show_tasks(&self) {
-        for task in &self.tasks {
-            task.afficher();
+        for i in 0..self.tasks.len() {
+            println!("{} - {}",i,&self.tasks[i].preparation_affichage());
         }
     }
 }
