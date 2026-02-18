@@ -35,7 +35,7 @@ impl App {
     pub fn done_task(&mut self, num: usize) {
         self.tasks[num].done();
     }
-    
+
     pub fn undone_task(&mut self, num: usize) {
         self.tasks[num].undone();
     }
@@ -55,5 +55,13 @@ impl App {
 
         let json = fs::read_to_string(filename).expect("Erreur lecture");
         serde_json::from_str(&json).expect("Erreur format JSON")
+    }
+
+    pub fn delete_done (&mut self) {
+        for i in (0..self.tasks.len()).rev() {
+            if self.tasks[i].get_done() {
+                self.tasks.remove(i);
+            }
+        }
     }
 }

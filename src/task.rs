@@ -39,4 +39,8 @@ impl Task {
     pub fn undone(&mut self) {
         self.done = false;
     }
+
+    pub fn get_done(&self) -> bool {
+        return self.done;
+    }
 }

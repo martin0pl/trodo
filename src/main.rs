@@ -51,6 +51,11 @@ fn main() {
 
             app.save(save_file);
         }
+        else if args[0] == "delete" && args[1] == "done" {
+            app.delete_done();
+
+            app.save(save_file);
+        }
         else {
             println!("Commande non reconnue");
         }
