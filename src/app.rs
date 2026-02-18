@@ -1,6 +1,10 @@
+use std::fs;
+use serde::{Serialize, Deserialize};
+
 use crate::Task;
 use crate::Project;
 
+#[derive(Serialize, Deserialize, Debug)]
 pub struct App {
     tasks : Vec<Task>,
     projects : Vec<Project>,
@@ -26,5 +30,22 @@ impl App {
         for i in 0..self.tasks.len() {
             println!("{} - {}",i,&self.tasks[i].preparation_affichage());
         }
+    }
+
+    pub fn save(&self, filename: &str) {
+        let json = serde_json::to_string_pretty(&self).expect("Erreur de sérialisation");
+        fs::write(filename, json).expect("Impossible d'écrire le fichier");
+    }
+
+    pub fn load_or_create(filename: &str) -> App {
+        // Si le fichier n'existe pas, on en crée un avec une App vide
+        if fs::metadata(filename).is_err() {
+            let temp_app = App::new();
+            temp_app.save(filename);
+            return temp_app;
+        }
+
+        let json = fs::read_to_string(filename).expect("Erreur lecture");
+        serde_json::from_str(&json).expect("Erreur format JSON")
     }
 }

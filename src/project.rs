@@ -1,5 +1,8 @@
+use serde::{Serialize, Deserialize};
+
 use crate::Task;
 
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Project {
     title : String,
     tasks : Vec<Task>,
