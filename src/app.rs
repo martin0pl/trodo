@@ -64,4 +64,8 @@ impl App {
             }
         }
     }
+
+    pub fn delete_all (&mut self) {
+        self.tasks = Vec::new();
+    }
 }

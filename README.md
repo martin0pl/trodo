@@ -12,3 +12,4 @@ An open-source project developed in Rust. Trodo is a terminal-based command-line
 | `trodo done task_num`        | Mark a task as done            |
 | `trodo undone task_num`      | Mark a task as undone          |
 | `trodo delete done`          | Delete all the done taks       |
+| `trodo delete all`           | Delete all the taks            |
