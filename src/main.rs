@@ -18,7 +18,7 @@ fn main() {
 
     let args: Vec<String> = env::args().collect();
 
-    // Vérification de si il y a des arguments
+    // Vérification de s'il y a une commande
     if args.len() == 1
     {
         app.show_tasks();
@@ -37,7 +37,13 @@ fn main() {
             
             app.save(save_file);
             
-            println!("Tâche ajoutée et enregistrée !");
+            println!("Tâche ajoutée et sauvegardée !");
+        }
+        else if args[0] == "done"{
+            let indice = args[1].parse::<usize>().unwrap_or(0);
+            app.done_task(indice);
+            
+            app.save(save_file);
         }
         else {
             println!("Commande non reconnue");
