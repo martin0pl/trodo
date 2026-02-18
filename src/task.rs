@@ -12,7 +12,11 @@ impl Task {
     }
 
     pub fn afficher(&self) {
-        println!("Affichage de la tâche");
-        println!("Titre : {}",self.title);
+        if self.done {
+            println!("[x] {}",self.title);
+        }
+        else {
+            println!("[ ] {}",self.title);
+        }
     }
 }
