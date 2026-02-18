@@ -51,5 +51,4 @@ fn main() {
             println!("Commande non reconnue");
         }
     }
-
 }
