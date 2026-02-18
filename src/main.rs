@@ -29,9 +29,12 @@ fn main() {
         let args: Vec<String> = args[1..].to_vec();
 
         // Gestion des commandes
+
+        // trodo list
         if args[0] == "list" {
             app.show_tasks();
         }
+        // trodo new task "task name"
         else if args[0] == "new" && args[1] == "task" {
             app.add_task(Task::new_t(args[2].clone()));
 
@@ -39,28 +42,33 @@ fn main() {
 
             println!("Tâche ajoutée et sauvegardée !");
         }
+        // trodo done task_num
         else if args[0] == "done"{
             let indice = args[1].parse::<usize>().unwrap_or(0);
             app.done_task(indice);
 
             app.save(save_file);
         }
+        // trodo undone task_num
         else if args[0] == "undone"{
             let indice = args[1].parse::<usize>().unwrap_or(0);
             app.undone_task(indice);
 
             app.save(save_file);
         }
+        // trodo delete done
         else if args[0] == "delete" && args[1] == "done" {
             app.delete_done();
 
             app.save(save_file);
         }
+        // trodo delete all
         else if args[0] == "delete" && args[1] == "all" {
             app.delete_all();
 
             app.save(save_file);
         }
+        // trodo delete task_num
         else if args[0] == "delete"{
             let indice = args[1].parse::<usize>().unwrap_or(0);
             app.delete_task(indice);
