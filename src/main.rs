@@ -61,6 +61,12 @@ fn main() {
 
             app.save(save_file);
         }
+        else if args[0] == "delete"{
+            let indice = args[1].parse::<usize>().unwrap_or(0);
+            app.delete_task(indice);
+
+            app.save(save_file);
+        }
         else {
             println!("Commande non reconnue");
         }
