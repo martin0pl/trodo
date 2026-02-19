@@ -10,11 +10,11 @@ pub struct Task {
 }
 
 impl Task {
-    pub fn new_t(title: String) -> Task {
+    pub fn new(title: String, due_date: Option<DateTime<Utc>>) -> Task {
         Self {
             done: false,
             title : title,
-            due_date : None,
+            due_date : due_date,
         }
     }
 

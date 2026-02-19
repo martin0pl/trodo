@@ -9,6 +9,7 @@ use project::Project;
 use app::App;
 
 use std::env;
+use chrono::{DateTime, Utc, TimeZone};
 
 fn main() {
 
@@ -35,12 +36,32 @@ fn main() {
             app.show_tasks();
         }
         // trodo new task "task name"
-        else if args[0] == "new" && args[1] == "task" {
-            app.add_task(Task::new_t(args[2].clone()));
+        else if args[0] == "new" && args[1] == "task" && args.len() == 3 {
+        
+            let title = args[2].clone();
+            
+            app.add_task(Task::new(title,None));
 
             app.save(save_file);
 
-            println!("Tâche ajoutée et sauvegardée !");
+            println!("Tâche ajoutée !");
+        }
+        // trodo new task "task name" "AAAA-MM-JJ"
+        else if args[0] == "new" && args[1] == "task" {
+            
+            let title = args[2].clone();
+            let mut due_date = None;
+
+            let date_str = format!("{} 12:00:00", args[3]); 
+            if let Ok(naive_date) = chrono::NaiveDateTime::parse_from_str(&date_str, "%Y-%m-%d %H:%M:%S") {
+                due_date = Some(Utc.from_utc_datetime(&naive_date));
+            }
+
+            app.add_task(Task::new(title,due_date));
+
+            app.save(save_file);
+
+            println!("Tâche ajoutée !");
         }
         // trodo done task_num
         else if args[0] == "done"{
