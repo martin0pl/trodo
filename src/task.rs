@@ -16,10 +16,10 @@ impl Task {
 
     pub fn preparation_affichage(&self) -> String {
         if self.done {
-            return(format!("[x] {}",self.title));
+            return format!("[x] {}",self.title);
         }
         else {
-            return(format!("[ ] {}",self.title));
+            return format!("[ ] {}",self.title);
         }
     }
 
