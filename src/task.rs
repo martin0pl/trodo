@@ -1,9 +1,12 @@
 use serde::{Serialize, Deserialize};
 
+use chrono::{DateTime, Utc};
+
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Task {
     done: bool,
-    title: String
+    title: String,
+    due_date : Option<DateTime<Utc>>,
 }
 
 impl Task {
@@ -11,6 +14,7 @@ impl Task {
         Self {
             done: false,
             title : title,
+            due_date : None,
         }
     }
 
