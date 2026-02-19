@@ -1,5 +1,7 @@
 use std::fs;
 use serde::{Serialize, Deserialize};
+use std::path::Path;
+use std::env;
 
 use crate::Task;
 use crate::Project;
@@ -46,6 +48,16 @@ impl App {
     }
 
     pub fn load_or_create(filename: &str) -> App {
+
+        let home_dir = env::var("HOME").expect("Impossible to reach HOME directory");
+        let full_path = format!("{}/trodo-save", home_dir);
+        let path = Path::new(&full_path);
+
+        // Si le dossier n'existe pas, on en crée un
+        if !path.exists() {
+            fs::create_dir(path);
+        }
+
         // Si le fichier n'existe pas, on en crée un avec une App vide
         if fs::metadata(filename).is_err() {
             let temp_app = App::new();

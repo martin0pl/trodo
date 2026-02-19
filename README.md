@@ -2,6 +2,10 @@
 
 An open-source project developed in Rust. Trodo is a terminal-based command-line interface (CLI) to manage your to-do list anywhere on your device, with persistent local storage.
 
+## Installation
+
+Download the binary file and put in a directory which is in your PATH
+
 ## Commands
 
 | Command                                   | Action                         |
@@ -15,3 +19,7 @@ An open-source project developed in Rust. Trodo is a terminal-based command-line
 | `trodo delete task_num`                   | Delete the task                |
 | `trodo delete done`                       | Delete all the done tasks      |
 | `trodo delete all`                        | Delete all the tasks           |
+
+## Save file
+
+The save file is save in a ~/trodo-save directory
