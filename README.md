@@ -8,19 +8,29 @@ Download the binary file and put in a directory which is in your PATH
 
 ## Commands
 
+### General
+
 | Command                                   | Action                         |
 | :---------------------------------------: | :----------------------------: |
 | `trodo`                                   | Show all tasks without project |
 | `trodo info`                              | Show all info                  |
 | `trodo version`                           | Show the current version       |
-|                                           |                                |
+
+### Task
+
+| Command                                   | Action                         |
+| :---------------------------------------: | :----------------------------: |
 | `trodo list`                              | Show all tasks without project |
 | `trodo new task "task name"`              | Add a new task                 |
 | `trodo new task "task name" "YYYY-MM-DD"` | Add a new task with due date   |
 | `trodo done task_num`                     | Mark a task as done            |
 | `trodo undone task_num`                   | Mark a task as undone          |
 | `trodo delete task_num`                   | Delete the task                |
-|                                           |                                |
+
+### General delete
+
+| Command                                   | Action                         |
+| :---------------------------------------: | :----------------------------: |
 | `trodo delete done`                       | Delete all the done tasks      |
 | `trodo delete all`                        | Delete all the tasks           |
 
