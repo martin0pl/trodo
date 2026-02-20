@@ -33,15 +33,6 @@ impl Task {
         }
     }
 
-    pub fn afficher(&self) {
-        if self.done {
-            println!("[x] {}",self.title);
-        }
-        else {
-            println!("[ ] {}",self.title);
-        }
-    }
-
     pub fn done(&mut self) {
         self.done = true;
     }
