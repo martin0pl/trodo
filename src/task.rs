@@ -21,15 +21,15 @@ impl Task {
     pub fn preparation_affichage(&self) -> String {
         
         let date_str = match &self.due_date {
-            Some(date) => date.format("%Y-%m-%d").to_string(),
-            None => "pas de date".to_string(),
+            Some(date) => date.format("(%Y-%m-%d)").to_string(),
+            None => "".to_string(),
         };
         
         if self.done {            
-            return format!("[x] {} ({})",self.title,date_str);
+            return format!("[x] {} {}",self.title,date_str);
         }
         else {
-            return format!("[ ] {} ({})",self.title,date_str);
+            return format!("[ ] {} {}",self.title,date_str);
         }
     }
 
