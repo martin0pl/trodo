@@ -10,6 +10,7 @@ use app::App;
 
 use std::env;
 use chrono::{DateTime, Utc, TimeZone};
+use std::io;
 
 fn main() {
 
@@ -94,9 +95,25 @@ fn main() {
         }
         // trodo delete all
         else if args[0] == "delete" && args[1] == "all" {
-            app.delete_all();
 
-            app.save(&save_file);
+            println!("Are you sur to delete all your tasks ? y for yes or n for no");
+
+            let mut confirmation: String = String::new();
+            io::stdin().read_line(&mut confirmation);
+            
+            if confirmation.ends_with('\n') {
+                confirmation.pop();
+            }
+
+            if confirmation=="y" {
+                app.delete_all();
+    
+                app.save(&save_file);
+                
+                println!("All tasks deleted");
+            } else {
+                println!("Command cancelled");
+            }
         }
         // trodo delete task_num
         else if args[0] == "delete"{
