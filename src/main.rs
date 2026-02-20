@@ -40,6 +40,10 @@ fn main() {
         else if args[0] == "version" {
             app.show_version();
         }
+        // trodo info
+        else if args[0] == "info" {
+            app.show_info();
+        }
         // trodo new task "task name"
         else if args[0] == "new" && args[1] == "task" && args.len() == 3 {
 
