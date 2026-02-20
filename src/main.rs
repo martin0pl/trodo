@@ -36,6 +36,10 @@ fn main() {
         if args[0] == "list" {
             app.show_tasks();
         }
+        // trodo version
+        else if args[0] == "version" {
+            app.show_version();
+        }
         // trodo new task "task name"
         else if args[0] == "new" && args[1] == "task" && args.len() == 3 {
 

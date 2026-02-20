@@ -19,6 +19,7 @@ Download the binary file and put in a directory which is in your PATH
 | `trodo delete task_num`                   | Delete the task                |
 | `trodo delete done`                       | Delete all the done tasks      |
 | `trodo delete all`                        | Delete all the tasks           |
+| `trodo version`                           | Show the current version       |
 
 ## Save file
 
