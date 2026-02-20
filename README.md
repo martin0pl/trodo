@@ -15,7 +15,7 @@ Download the binary file and put in a directory which is in your PATH
 | `trodo version`                           | Show the current version       |
 | `trodo list`                              | Show all tasks without project |
 | `trodo new task "task name"`              | Add a new task                 |
-| `trodo new task "task name" "AAAA-MM-JJ"` | Add a new task with due date   |
+| `trodo new task "task name" "YYYY-MM-DD"` | Add a new task with due date   |
 | `trodo done task_num`                     | Mark a task as done            |
 | `trodo undone task_num`                   | Mark a task as undone          |
 | `trodo delete task_num`                   | Delete the task                |

@@ -57,8 +57,8 @@ impl App {
     }
 
     pub fn save(&self, filename: &str) {
-        let json = serde_json::to_string_pretty(&self).expect("Erreur de sérialisation");
-        fs::write(filename, json).expect("Impossible d'écrire le fichier");
+        let json = serde_json::to_string_pretty(&self).expect("Error of serialization");
+        fs::write(filename, json).expect("Impossible to reach the save file");
     }
 
     pub fn load_or_create(filename: &str) -> App {
@@ -79,8 +79,8 @@ impl App {
             return temp_app;
         }
 
-        let json = fs::read_to_string(filename).expect("Erreur lecture");
-        serde_json::from_str(&json).expect("Erreur format JSON")
+        let json = fs::read_to_string(filename).expect("Reading error");
+        serde_json::from_str(&json).expect("JSON format error")
     }
 
     pub fn delete_done (&mut self) {

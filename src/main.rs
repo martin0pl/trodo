@@ -53,9 +53,9 @@ fn main() {
 
             app.save(&save_file);
 
-            println!("Tâche ajoutée !");
+            println!("Task added !");
         }
-        // trodo new task "task name" "AAAA-MM-JJ"
+        // trodo new task "task name" "YYYY-MM-DD"
         else if args[0] == "new" && args[1] == "task" {
 
             let title = args[2].clone();
@@ -70,7 +70,7 @@ fn main() {
 
             app.save(&save_file);
 
-            println!("Tâche ajoutée !");
+            println!("Task added !");
         }
         // trodo done task_num
         else if args[0] == "done"{
@@ -106,7 +106,7 @@ fn main() {
             app.save(&save_file);
         }
         else {
-            println!("Commande non reconnue");
+            println!("Command not recognized");
         }
     }
 }
