@@ -1,5 +1,3 @@
-//#![allow(unused)]
-
 mod task;
 mod project;
 mod app;
