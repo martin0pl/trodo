@@ -19,13 +19,13 @@ impl Task {
     }
 
     pub fn preparation_affichage(&self) -> String {
-        
+
         let date_str = match &self.due_date {
             Some(date) => date.format("(%Y-%m-%d)").to_string(),
             None => "".to_string(),
         };
-        
-        if self.done {            
+
+        if self.done {
             return format!("[x] {} {}",self.title,date_str);
         }
         else {
@@ -44,4 +44,12 @@ impl Task {
     pub fn get_done(&self) -> bool {
         return self.done;
     }
+
+    pub fn get_due_date(&self) -> Option<DateTime<Utc>> {
+        self.due_date
+    }
+}
+
+pub fn sort_by_date (tasks: &mut Vec<Task>) {
+    tasks.sort_by_key(|t| t.get_due_date().is_none());
 }
