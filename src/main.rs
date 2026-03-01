@@ -1,4 +1,4 @@
-#![allow(unused)]
+//#![allow(unused)]
 
 mod task;
 mod project;
@@ -53,10 +53,11 @@ fn main() {
         }
         // trodo current project
         else if args[0] == "current" && args[1] == "project" {
-            if app.get_current_project() != -1 {
+            let num_current_project = app.get_current_project();
+            if num_current_project != -1 {
                 println!("----- Current project : ");
-                println!("Project number : {}",app.get_current_project());
-                println!("Project name : {}",app.get_current_project());
+                println!("Project number : {}",num_current_project);
+                println!("Project name : {}",app.get_project_title(num_current_project));
             } else {
                 println!("No current project");
             }
