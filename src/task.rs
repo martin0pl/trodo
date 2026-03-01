@@ -49,7 +49,3 @@ impl Task {
         self.due_date
     }
 }
-
-pub fn sort_by_date (tasks: &mut Vec<Task>) {
-    tasks.sort_by_key(|t| t.get_due_date().is_none());
-}

@@ -36,6 +36,8 @@ impl App {
 
     pub fn add_task(&mut self, task: Task) {
         self.tasks.push(task);
+
+        sort_by_date(&mut self.tasks);
     }
 
     pub fn add_project(&mut self, project: Project) {
@@ -98,4 +100,16 @@ impl App {
     pub fn delete_task (&mut self, num : usize) {
         self.tasks.remove(num);
     }
+}
+
+pub fn sort_by_date (tasks: &mut Vec<Task>) {
+
+    tasks.sort_by(|a, b| {
+        match (a.get_due_date(), b.get_due_date()) {
+            (Some(da), Some(db)) => da.cmp(&db),
+            (Some(_), None) => std::cmp::Ordering::Less,
+            (None, Some(_)) => std::cmp::Ordering::Greater,
+            (None, None) => std::cmp::Ordering::Equal,
+        }
+    });
 }
