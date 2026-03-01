@@ -62,6 +62,17 @@ fn main() {
 
             println!("Task added !");
         }
+        // trodo new task "task name" today
+        else if args[0] == "new" && args[1] == "task" && args[3] == "today" {
+            let title = args[2].clone();
+            let due_date = Some(Utc::now());
+            
+            app.add_task(Task::new(title,due_date));
+
+            app.save(&save_file);
+
+            println!("Task added !");
+        }
         // trodo new task "task name" "YYYY-MM-DD"
         else if args[0] == "new" && args[1] == "task" {
 
