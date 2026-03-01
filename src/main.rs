@@ -14,6 +14,8 @@ use std::io;
 
 fn main() {
 
+    const VERSION:&str = "2026-03-01";
+
     let home_dir = env::var("HOME").expect("Impossible to reach HOME directory");
     let save_file = format!("{}/trodo-save/save_trodo.json", home_dir);
 
@@ -39,11 +41,15 @@ fn main() {
         }
         // trodo version
         else if args[0] == "version" {
-            app.show_version();
+            println!("Version : {}",VERSION);
         }
         // trodo info
         else if args[0] == "info" {
-            app.show_info();
+            println!("Trodo");
+            println!("Developper : martin0pl");
+            println!("Programming language : Rust");
+            println!("Version : {}",VERSION);
+            println!("Github repository : https://github.com/martin0pl/trodo");
         }
         // trodo new task "task name"
         else if args[0] == "new" && args[1] == "task" && args.len() == 3 {
@@ -100,16 +106,16 @@ fn main() {
 
             let mut confirmation: String = String::new();
             io::stdin().read_line(&mut confirmation);
-            
+
             if confirmation.ends_with('\n') {
                 confirmation.pop();
             }
 
             if confirmation=="y" {
                 app.delete_all();
-    
+
                 app.save(&save_file);
-                
+
                 println!("All tasks deleted");
             } else {
                 println!("Command cancelled");

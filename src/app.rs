@@ -10,7 +10,6 @@ use crate::Project;
 pub struct App {
     tasks : Vec<Task>,
     projects : Vec<Project>,
-    version : String,
 }
 
 impl App {
@@ -18,20 +17,7 @@ impl App {
         Self {
             tasks : Vec::new(),
             projects : Vec::new(),
-            version : "2026-02-20".to_string(),
         }
-    }
-
-    pub fn show_version(&self) {
-        println!("Version : {}",self.version);
-    }
-
-    pub fn show_info(&self) {
-        println!("Trodo");
-        println!("Developper : martin0pl");
-        println!("Programming language : Rust");
-        println!("Version : {}",self.version);
-        println!("Github repository : https://github.com/martin0pl/trodo");
     }
 
     pub fn add_task(&mut self, task: Task) {
