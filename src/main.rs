@@ -9,7 +9,7 @@ use project::Project;
 use app::App;
 
 use std::env;
-use chrono::{DateTime, Utc, TimeZone, TimeDelta};
+use chrono::{Utc, TimeZone, TimeDelta};
 use std::io;
 
 fn main() {
