@@ -9,7 +9,7 @@ use project::Project;
 use app::App;
 
 use std::env;
-use chrono::{DateTime, Utc, TimeZone};
+use chrono::{DateTime, Utc, TimeZone, TimeDelta};
 use std::io;
 
 fn main() {
@@ -66,7 +66,18 @@ fn main() {
         else if args[0] == "new" && args[1] == "task" && args[3] == "today" {
             let title = args[2].clone();
             let due_date = Some(Utc::now());
-            
+
+            app.add_task(Task::new(title,due_date));
+
+            app.save(&save_file);
+
+            println!("Task added !");
+        }
+        // trodo new task "task name" tomorrow
+        else if args[0] == "new" && args[1] == "task" && args[3] == "tomorrow" {
+            let title = args[2].clone();
+            let due_date = Some(Utc::now() + TimeDelta::try_days(1).expect("Invalid duration"));
+
             app.add_task(Task::new(title,due_date));
 
             app.save(&save_file);
