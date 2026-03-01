@@ -51,6 +51,16 @@ fn main() {
             println!("Version : {}",VERSION);
             println!("Github repository : https://github.com/martin0pl/trodo");
         }
+        // trodo current project
+        else if args[0] == "current" && args[1] == "project" {
+            if app.get_current_project() != -1 {
+                println!("----- Current project : ");
+                println!("Project number : {}",app.get_current_project());
+                println!("Project name : {}",app.get_current_project());
+            } else {
+                println!("No current project");
+            }
+        }
         // trodo new task "task name"
         else if args[0] == "new" && args[1] == "task" && args.len() == 3 {
 

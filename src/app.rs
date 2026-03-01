@@ -8,6 +8,7 @@ use crate::Project;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct App {
+    current_project : i32,
     tasks : Vec<Task>,
     projects : Vec<Project>,
 }
@@ -15,6 +16,7 @@ pub struct App {
 impl App {
     pub fn new() -> App {
         Self {
+            current_project : -1,
             tasks : Vec::new(),
             projects : Vec::new(),
         }
@@ -85,6 +87,14 @@ impl App {
 
     pub fn delete_task (&mut self, num : usize) {
         self.tasks.remove(num);
+    }
+
+    pub fn get_current_project (&self) -> i32 {
+        self.current_project
+    }
+
+    pub fn get_project_title(&self, num: i32) -> String {
+        self.projects[num as usize].get_title()
     }
 }
 

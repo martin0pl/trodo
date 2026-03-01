@@ -15,8 +15,12 @@ impl Project {
             tasks : Vec::new(),
         }
     }
-    
+
     pub fn add_task(&mut self, task: Task) {
         self.tasks.push(task);
+    }
+
+    pub fn get_title(&self) -> String {
+        self.title.clone()
     }
 }
