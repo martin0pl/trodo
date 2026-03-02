@@ -114,7 +114,7 @@ fn main() {
         else if args[0] == "done"{
             let indice = args[1].parse::<usize>().unwrap_or(0);
 
-            if indice >= 0 && indice < app.get_nb_tasks() {
+            if indice < app.get_nb_tasks() {
                 app.done_task(indice);
 
                 app.save(&save_file);
@@ -124,7 +124,7 @@ fn main() {
         else if args[0] == "undone"{
             let indice = args[1].parse::<usize>().unwrap_or(0);
 
-            if indice >= 0 && indice < app.get_nb_tasks() {
+            if indice < app.get_nb_tasks() {
                 app.undone_task(indice);
 
                 app.save(&save_file);
@@ -162,7 +162,7 @@ fn main() {
         else if args[0] == "delete"{
             let indice = args[1].parse::<usize>().unwrap_or(0);
 
-            if indice >= 0 && indice < app.get_nb_tasks() {
+            if indice < app.get_nb_tasks() {
                 app.delete_task(indice);
 
                 app.save(&save_file);
