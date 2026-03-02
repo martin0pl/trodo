@@ -89,6 +89,10 @@ impl App {
         self.tasks.remove(num);
     }
 
+    pub fn set_current_project (&mut self, indice: i32) {
+        self.current_project = indice;
+    }
+
     pub fn get_current_project (&self) -> i32 {
         self.current_project
     }
