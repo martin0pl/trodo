@@ -21,7 +21,7 @@ fn main() {
 
     let args: Vec<String> = env::args().collect();
 
-    // Vérification de s'il y a une commande
+    // If there is no command
     if args.len() == 1
     {
         app.show_tasks();
