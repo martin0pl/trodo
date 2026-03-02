@@ -28,10 +28,10 @@ fn main() {
     }
     else
     {
-        // On ne prend pas le premier argument qui est le nom du programme
+        // Ignore the first argument which is the name of the program
         let args: Vec<String> = args[1..].to_vec();
 
-        // Gestion des commandes
+        // Commands
 
         // trodo list
         if args[0] == "list" {
