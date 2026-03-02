@@ -57,12 +57,12 @@ impl App {
         let full_path = format!("{}/trodo-save", home_dir);
         let path = Path::new(&full_path);
 
-        // Si le dossier n'existe pas, on en crée un
+        // If the folder does not exist, we create it
         if !path.exists() {
             let _ = fs::create_dir(path);
         }
 
-        // Si le fichier n'existe pas, on en crée un avec une App vide
+        // If the save file does not exist, we create it with an empty App
         if fs::metadata(filename).is_err() {
             let temp_app = App::new();
             temp_app.save(filename);
