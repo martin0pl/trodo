@@ -41,6 +41,7 @@ Download the binary file and put in a directory which is in your PATH
 | :---------------------------------------: | :----------------------------: |
 | `trodo current project`                   | Show the current project       |
 | `trodo close current project`             | Close current project          |
+| `trodo open project num_project`          | Set current project            |
 
 ## Save file
 

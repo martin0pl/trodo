@@ -104,6 +104,10 @@ impl App {
     pub fn get_nb_tasks (&self) -> usize {
         self.tasks.len()
     }
+    
+    pub fn get_nb_projects (&self) -> usize {
+        self.projects.len()
+    }
 }
 
 pub fn sort_by_date (tasks: &mut Vec<Task>) {
