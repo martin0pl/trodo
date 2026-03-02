@@ -73,6 +73,8 @@ fn main() {
 
             if indice as usize <= app.get_nb_projects() {
                 app.set_current_project(indice);
+                
+                app.save(&save_file);
 
                 println!("Current project set to {}", args[2]);
             } else {
