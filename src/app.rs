@@ -96,6 +96,10 @@ impl App {
     pub fn get_project_title(&self, num: i32) -> String {
         self.projects[num as usize].get_title()
     }
+
+    pub fn get_nb_tasks (&self) -> usize {
+        self.tasks.len()
+    }
 }
 
 pub fn sort_by_date (tasks: &mut Vec<Task>) {

@@ -113,16 +113,22 @@ fn main() {
         // trodo done task_num
         else if args[0] == "done"{
             let indice = args[1].parse::<usize>().unwrap_or(0);
-            app.done_task(indice);
 
-            app.save(&save_file);
+            if indice >= 0 && indice < app.get_nb_tasks() {
+                app.done_task(indice);
+
+                app.save(&save_file);
+            }
         }
         // trodo undone task_num
         else if args[0] == "undone"{
             let indice = args[1].parse::<usize>().unwrap_or(0);
-            app.undone_task(indice);
 
-            app.save(&save_file);
+            if indice >= 0 && indice < app.get_nb_tasks() {
+                app.undone_task(indice);
+
+                app.save(&save_file);
+            }
         }
         // trodo delete done
         else if args[0] == "delete" && args[1] == "done" {
@@ -155,9 +161,12 @@ fn main() {
         // trodo delete task_num
         else if args[0] == "delete"{
             let indice = args[1].parse::<usize>().unwrap_or(0);
-            app.delete_task(indice);
 
-            app.save(&save_file);
+            if indice >= 0 && indice < app.get_nb_tasks() {
+                app.delete_task(indice);
+
+                app.save(&save_file);
+            }
         }
         else {
             println!("Command not recognized");
