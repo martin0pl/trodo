@@ -142,7 +142,7 @@ fn main() {
             println!("Are you sur to delete all your tasks ? y for yes or n for no");
 
             let mut confirmation: String = String::new();
-            io::stdin().read_line(&mut confirmation);
+            let _ = io::stdin().read_line(&mut confirmation);
 
             if confirmation.ends_with('\n') {
                 confirmation.pop();

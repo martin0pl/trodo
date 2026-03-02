@@ -59,7 +59,7 @@ impl App {
 
         // Si le dossier n'existe pas, on en crée un
         if !path.exists() {
-            fs::create_dir(path);
+            let _ = fs::create_dir(path);
         }
 
         // Si le fichier n'existe pas, on en crée un avec une App vide
