@@ -40,6 +40,7 @@ Download the binary file and put in a directory which is in your PATH
 | Command                                   | Action                         |
 | :---------------------------------------: | :----------------------------: |
 | `trodo current project`                   | Show the current project       |
+| `trodo close current project`             | Close current project          |
 
 ## Save file
 

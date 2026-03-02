@@ -63,6 +63,8 @@ fn main() {
         // trodo close current project
         else if args[0] == "close" && args[1] == "current" && args[2] == "project" {
             app.set_current_project(-1);
+
+            println!("Current project closed");
         }
         // trodo new task "task name"
         else if args[0] == "new" && args[1] == "task" && args.len() == 3 {
