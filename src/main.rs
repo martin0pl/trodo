@@ -68,16 +68,26 @@ fn main() {
         }
         // trodo open project num_project
         else if args[0] == "open" && args[1] == "project" {
-            
+
             let indice = args[2].parse().expect("Unvalid indice");
-            
+
             if indice as usize <= app.get_nb_projects() {
                 app.set_current_project(indice);
-    
+
                 println!("Current project set to {}", args[2]);
             } else {
                 println!("Unvalid indice");
             }
+        }
+        // trodo new project "project name"
+        else if args[0] == "new" && args[1] == "project" && args.len() == 3 {
+            let project = Project::new(args[2].clone());
+
+            app.add_project(project);
+
+            app.save(&save_file);
+
+            println!("Project added !");
         }
         // trodo new task "task name"
         else if args[0] == "new" && args[1] == "task" && args.len() == 3 {
