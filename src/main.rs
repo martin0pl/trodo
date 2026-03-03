@@ -73,7 +73,7 @@ fn main() {
 
             if indice as usize <= app.get_nb_projects() {
                 app.set_current_project(indice);
-                
+
                 app.save(&save_file);
 
                 println!("Current project set to {}", args[2]);
@@ -90,6 +90,18 @@ fn main() {
             app.save(&save_file);
 
             println!("Project added !");
+        }
+        // trodo delete project num_project
+        else if args[0] == "delete" && args[1] == "project"  && args.len() == 3 {
+
+            let indice = args[1].parse::<usize>().unwrap_or(0);
+            
+            app.delete_project(indice);
+
+            app.save(&save_file);
+
+            println!("Project deleted");
+
         }
         // trodo new task "task name"
         else if args[0] == "new" && args[1] == "task" && args.len() == 3 {

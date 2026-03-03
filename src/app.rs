@@ -85,7 +85,7 @@ impl App {
         self.tasks = Vec::new();
     }
 
-    pub fn delete_task (&mut self, num : usize) {
+    pub fn delete_task (&mut self, num: usize) {
         self.tasks.remove(num);
     }
 
@@ -107,6 +107,10 @@ impl App {
     
     pub fn get_nb_projects (&self) -> usize {
         self.projects.len()
+    }
+    
+    pub fn delete_project (&mut self, num: usize) {
+        self.projects.remove(num);
     }
 }
 
