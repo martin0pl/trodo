@@ -39,6 +39,16 @@ impl Project {
                 println!("{}-{} {}",num_project,i,self.tasks[i].preparation_affichage());
             }
         }
-        
+    }
+    
+    pub fn sort(&mut self) {
+        self.tasks.sort_by(|a, b| {
+            match (a.get_due_date(), b.get_due_date()) {
+                (Some(da), Some(db)) => da.cmp(&db),
+                (Some(_), None) => std::cmp::Ordering::Less,
+                (None, Some(_)) => std::cmp::Ordering::Greater,
+                (None, None) => std::cmp::Ordering::Equal,
+            }
+        });
     }
 }

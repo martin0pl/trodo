@@ -118,12 +118,22 @@ fn main() {
             println!("Project deleted");
 
         }
-        // trodo new task -cp "task name"
+        // trodo new task -cp "task name" or trodo new task -cp "task name" YYYY-MM-DD
         else if args[0] == "new" && args[1] == "task" && args[2] == "-cp" {
             
             let title = args[3].clone();
             
-            app.add_task_project(app.get_current_project() as usize,Task::new(title,None));
+            if args.len() == 4 {
+                app.add_task_project(app.get_current_project() as usize,Task::new(title,None));
+            }
+            else if args.len() == 5 {
+                let mut due_date = None;
+                let date_str = format!("{} 12:00:00", args[4]);
+                if let Ok(naive_date) = chrono::NaiveDateTime::parse_from_str(&date_str, "%Y-%m-%d %H:%M:%S") {
+                    due_date = Some(Utc.from_utc_datetime(&naive_date));
+                }
+                app.add_task_project(app.get_current_project() as usize,Task::new(title,due_date));
+            }
             
             app.save(&save_file);
 
