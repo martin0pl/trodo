@@ -112,6 +112,17 @@ impl App {
     pub fn delete_project (&mut self, num: usize) {
         self.projects.remove(num);
     }
+    
+    pub fn show_all_projects(&self) {
+        for i in 0..self.projects.len() {
+            if i == self.current_project as usize {
+                println!("* {} - {}",i,&self.projects[i].preparation_affichage());
+            }
+            else {
+                println!("{} - {}",i,&self.projects[i].preparation_affichage());
+            }
+        }
+    }
 }
 
 pub fn sort_by_date (tasks: &mut Vec<Task>) {

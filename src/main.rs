@@ -12,7 +12,7 @@ use std::io;
 
 fn main() {
 
-    const VERSION:&str = "2026-03-01";
+    const VERSION:&str = "2026-03-04";
 
     let home_dir = env::var("HOME").expect("Impossible to reach HOME directory");
     let save_file = format!("{}/trodo-save/save_trodo.json", home_dir);
@@ -48,6 +48,10 @@ fn main() {
             println!("Programming language : Rust");
             println!("Version : {}",VERSION);
             println!("Github repository : https://github.com/martin0pl/trodo");
+        }
+        // trodo projects
+        else if args[0] == "projects" {
+            app.show_all_projects();
         }
         // trodo current project
         else if args[0] == "current" && args[1] == "project" {

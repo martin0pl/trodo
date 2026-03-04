@@ -23,4 +23,8 @@ impl Project {
     pub fn get_title(&self) -> String {
         self.title.clone()
     }
+    
+    pub fn preparation_affichage(&self) -> String {
+        self.title.clone()
+    }
 }
