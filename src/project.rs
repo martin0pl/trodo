@@ -31,7 +31,7 @@ impl Project {
     pub fn show(&self, num_project: usize) {
         println!("Title of the project : {}",self.title);
         
-        if self.tasks.len() > 0 {
+        if self.tasks.len() == 0 {
             println!("No tasks in the project");
         } 
         else {

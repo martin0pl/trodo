@@ -135,6 +135,10 @@ impl App {
     pub fn show_project (&self, num_project: usize) {
         self.projects[num_project].show(num_project);
     }
+    
+    pub fn add_task_project (&mut self, num_project: usize, task: Task) {
+        self.projects[num_project].add_task(task);
+    }
 }
 
 pub fn sort_by_date (tasks: &mut Vec<Task>) {

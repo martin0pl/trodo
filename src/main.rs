@@ -118,6 +118,18 @@ fn main() {
             println!("Project deleted");
 
         }
+        // trodo new task -cp "task name" YYYY-MM-DD
+        else if args[0] == "new" && args[1] == "task" && args[2] == "-cp" {
+            
+            let title = args[3].clone();
+            
+            app.add_task_project(app.get_current_project() as usize,Task::new(title,None));
+            
+            app.save(&save_file);
+
+            println!("Task added !");
+            
+        }
         // trodo new task "task name"
         else if args[0] == "new" && args[1] == "task" && args.len() == 3 {
 
