@@ -46,6 +46,7 @@ Download the binary file and put in a directory which is in your PATH
 | `trodo open project num_project`          | Set current project            |
 | `trodo close current project`             | Close current project          |
 | `trodo list -p num_project`               | Show the tasks of the project  |
+| `trodo new task -cp "task name"`          | New task in the project        |
 
 ## Save file
 

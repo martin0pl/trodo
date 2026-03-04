@@ -118,7 +118,7 @@ fn main() {
             println!("Project deleted");
 
         }
-        // trodo new task -cp "task name" YYYY-MM-DD
+        // trodo new task -cp "task name"
         else if args[0] == "new" && args[1] == "task" && args[2] == "-cp" {
             
             let title = args[3].clone();
