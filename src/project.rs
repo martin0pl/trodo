@@ -27,4 +27,18 @@ impl Project {
     pub fn preparation_affichage(&self) -> String {
         self.title.clone()
     }
+    
+    pub fn show(&self, num_project: usize) {
+        println!("Title of the project : {}",self.title);
+        
+        if self.tasks.len() > 0 {
+            println!("No tasks in the project");
+        } 
+        else {
+            for i in 0..self.tasks.len() {
+                println!("{}-{} {}",num_project,i,self.tasks[i].preparation_affichage());
+            }
+        }
+        
+    }
 }

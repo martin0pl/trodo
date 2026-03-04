@@ -131,6 +131,10 @@ impl App {
             println!("No projects");
         }
     }
+    
+    pub fn show_project (&self, num_project: usize) {
+        self.projects[num_project].show(num_project);
+    }
 }
 
 pub fn sort_by_date (tasks: &mut Vec<Task>) {

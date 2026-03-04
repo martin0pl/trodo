@@ -34,7 +34,7 @@ fn main() {
         // Commands
 
         // trodo list
-        if args[0] == "list" {
+        if args[0] == "list" && args.len() == 1 {
             app.show_tasks();
         }
         // trodo version
@@ -58,8 +58,7 @@ fn main() {
             let num_current_project = app.get_current_project();
             if num_current_project != -1 {
                 println!("----- Current project : ");
-                println!("Project number : {}",num_current_project);
-                println!("Project name : {}",app.get_project_title(num_current_project));
+                app.show_project(num_current_project as usize);
             } else {
                 println!("No current project");
             }
@@ -69,6 +68,18 @@ fn main() {
             app.set_current_project(-1);
 
             println!("Current project closed");
+        }
+        // trodo list -p num_project
+        else if args[0] == "list" && args[1] == "-p" {
+            let indice = args[2].parse().expect("Unvalid indice");
+
+            if indice as usize <= app.get_nb_projects() {
+                app.show_project(indice);
+
+                app.save(&save_file);
+            } else {
+                println!("Unvalid indice");
+            }
         }
         // trodo open project num_project
         else if args[0] == "open" && args[1] == "project" {
