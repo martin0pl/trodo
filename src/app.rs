@@ -33,8 +33,12 @@ impl App {
     }
 
     pub fn show_tasks(&self) {
-        for i in 0..self.tasks.len() {
-            println!("{} - {}",i,&self.tasks[i].preparation_affichage());
+        if self.tasks.len() > 0 {
+            for i in 0..self.tasks.len() {
+                println!("{} - {}",i,&self.tasks[i].preparation_affichage());
+            }
+        } else {
+            println!("No tasks");
         }
     }
 
@@ -104,23 +108,27 @@ impl App {
     pub fn get_nb_tasks (&self) -> usize {
         self.tasks.len()
     }
-    
+
     pub fn get_nb_projects (&self) -> usize {
         self.projects.len()
     }
-    
+
     pub fn delete_project (&mut self, num: usize) {
         self.projects.remove(num);
     }
-    
+
     pub fn show_all_projects(&self) {
-        for i in 0..self.projects.len() {
-            if i == self.current_project as usize {
-                println!("* {} - {}",i,&self.projects[i].preparation_affichage());
+        if self.projects.len() > 0 {
+            for i in 0..self.projects.len() {
+                if i == self.current_project as usize {
+                    println!("* {} - {}",i,&self.projects[i].preparation_affichage());
+                }
+                else {
+                    println!("{} - {}",i,&self.projects[i].preparation_affichage());
+                }
             }
-            else {
-                println!("{} - {}",i,&self.projects[i].preparation_affichage());
-            }
+        } else {
+            println!("No projects");
         }
     }
 }
