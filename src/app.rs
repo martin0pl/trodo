@@ -4,13 +4,11 @@ use std::path::Path;
 use std::env;
 
 use crate::Task;
-use crate::Project;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct App {
     current_project : i32,
     tasks : Vec<Task>,
-    projects : Vec<Project>,
 }
 
 impl App {
@@ -18,7 +16,6 @@ impl App {
         Self {
             current_project : -1,
             tasks : Vec::new(),
-            projects : Vec::new(),
         }
     }
 
