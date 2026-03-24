@@ -35,10 +35,6 @@ impl App {
         });
     }
 
-    pub fn add_project(&mut self, project: Project) {
-        self.projects.push(project);
-    }
-
     pub fn show_tasks(&self) {
         if self.tasks.len() > 0 {
             for i in 0..self.tasks.len() {
@@ -100,51 +96,7 @@ impl App {
         self.tasks.remove(num);
     }
 
-    pub fn set_current_project (&mut self, indice: i32) {
-        self.current_project = indice;
-    }
-
-    pub fn get_current_project (&self) -> i32 {
-        self.current_project
-    }
-
-    pub fn get_project_title(&self, num: i32) -> String {
-        self.projects[num as usize].get_title()
-    }
-
     pub fn get_nb_tasks (&self) -> usize {
         self.tasks.len()
-    }
-
-    pub fn get_nb_projects (&self) -> usize {
-        self.projects.len()
-    }
-
-    pub fn delete_project (&mut self, num: usize) {
-        self.projects.remove(num);
-    }
-
-    pub fn show_all_projects(&self) {
-        if self.projects.len() > 0 {
-            for i in 0..self.projects.len() {
-                if i == self.current_project as usize {
-                    println!("* {} - {}",i,&self.projects[i].preparation_affichage());
-                }
-                else {
-                    println!("{} - {}",i,&self.projects[i].preparation_affichage());
-                }
-            }
-        } else {
-            println!("No projects");
-        }
-    }
-    
-    pub fn show_project (&self, num_project: usize) {
-        self.projects[num_project].show(num_project);
-    }
-    
-    pub fn add_task_project (&mut self, num_project: usize, task: Task) {
-        self.projects[num_project].add_task(task);
-        self.projects[num_project].sort();
     }
 }

@@ -36,19 +36,6 @@ Download the binary file and put in a directory which is in your PATH
 | `trodo delete done`                         | Delete all the done tasks      |
 | `trodo delete all`                          | Delete all the tasks           |
 
-### Project
-| Command                                     | Action                         |
-| :------------------------------------------:| :----------------------------: |
-| `trodo projects`                            | Show all projects              |
-| `trodo new project "project name"`          | Create a new project           |
-| `trodo delete project num_project`          | Delete a project               |
-| `trodo current project`                     | Show the current project       |
-| `trodo open project num_project`            | Set current project            |
-| `trodo close current project`               | Close current project          |
-| `trodo list -p num_project`                 | Show the tasks of the project  |
-| `trodo new task -cp "task name"`            | New task in the project        |
-| `trodo new task -cp "task name" YYYY-MM-DD` | New task in the project        |
-
 ## Save file
 
 The save file is save in a ~/trodo-save directory

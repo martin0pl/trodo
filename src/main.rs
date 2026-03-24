@@ -1,9 +1,7 @@
 mod task;
-mod project;
 mod app;
 
 use task::Task;
-use project::Project;
 use app::App;
 
 use std::env;
@@ -48,97 +46,6 @@ fn main() {
             println!("Programming language : Rust");
             println!("Version : {}",VERSION);
             println!("Github repository : https://github.com/martin0pl/trodo");
-        }
-        // trodo projects
-        else if args[0] == "projects" {
-            app.show_all_projects();
-        }
-        // trodo current project
-        else if args[0] == "current" && args[1] == "project" {
-            let num_current_project = app.get_current_project();
-            if num_current_project != -1 {
-                println!("----- Current project : ");
-                app.show_project(num_current_project as usize);
-            } else {
-                println!("No current project");
-            }
-        }
-        // trodo close current project
-        else if args[0] == "close" && args[1] == "current" && args[2] == "project" {
-            app.set_current_project(-1);
-
-            println!("Current project closed");
-        }
-        // trodo list -p num_project
-        else if args[0] == "list" && args[1] == "-p" {
-            let indice = args[2].parse().expect("Unvalid indice");
-
-            if indice as usize <= app.get_nb_projects() {
-                app.show_project(indice);
-
-                app.save(&save_file);
-            } else {
-                println!("Unvalid indice");
-            }
-        }
-        // trodo open project num_project
-        else if args[0] == "open" && args[1] == "project" {
-
-            let indice = args[2].parse().expect("Unvalid indice");
-
-            if indice as usize <= app.get_nb_projects() {
-                app.set_current_project(indice);
-
-                app.save(&save_file);
-
-                println!("Current project set to {}", args[2]);
-            } else {
-                println!("Unvalid indice");
-            }
-        }
-        // trodo new project "project name"
-        else if args[0] == "new" && args[1] == "project" && args.len() == 3 {
-            let project = Project::new(args[2].clone());
-
-            app.add_project(project);
-
-            app.save(&save_file);
-
-            println!("Project added !");
-        }
-        // trodo delete project num_project
-        else if args[0] == "delete" && args[1] == "project"  && args.len() == 3 {
-
-            let indice = args[1].parse::<usize>().unwrap_or(0);
-            
-            app.delete_project(indice);
-
-            app.save(&save_file);
-
-            println!("Project deleted");
-
-        }
-        // trodo new task -cp "task name" or trodo new task -cp "task name" YYYY-MM-DD
-        else if args[0] == "new" && args[1] == "task" && args[2] == "-cp" {
-            
-            let title = args[3].clone();
-            
-            if args.len() == 4 {
-                app.add_task_project(app.get_current_project() as usize,Task::new(title,None));
-            }
-            else if args.len() == 5 {
-                let mut due_date = None;
-                let date_str = format!("{} 12:00:00", args[4]);
-                if let Ok(naive_date) = chrono::NaiveDateTime::parse_from_str(&date_str, "%Y-%m-%d %H:%M:%S") {
-                    due_date = Some(Utc.from_utc_datetime(&naive_date));
-                }
-                app.add_task_project(app.get_current_project() as usize,Task::new(title,due_date));
-            }
-            
-            app.save(&save_file);
-
-            println!("Task added !");
-            
         }
         // trodo new task "task name"
         else if args[0] == "new" && args[1] == "task" && args.len() == 3 {
