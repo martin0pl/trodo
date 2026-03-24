@@ -47,6 +47,10 @@ fn main() {
             println!("Version : {}",VERSION);
             println!("Github repository : https://github.com/martin0pl/trodo");
         }
+        // trodo today
+        else if args[0] == "today" {
+            app.show_today_tasks();
+        }
         // trodo new task "task name"
         else if args[0] == "new" && args[1] == "task" && args.len() == 3 {
 

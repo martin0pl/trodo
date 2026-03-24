@@ -42,6 +42,25 @@ impl App {
         }
     }
 
+    pub fn show_today_tasks(&self) {
+        let mut one_today_task = false;
+
+        if self.tasks.len() > 0 {
+            for i in 0..self.tasks.len() {
+                if self.tasks[i].is_today() {
+                    one_today_task = true;
+                    println!("{} - {}", i, &self.tasks[i].preparation_affichage());
+                }
+            }
+        }
+
+        if self.tasks.len() > 0 && !one_today_task {
+            println!("No tasks today");
+        } else if self.tasks.len() == 0 {
+            println!("No tasks");
+        }
+    }
+
     pub fn done_task(&mut self, num: usize) {
         self.tasks[num].done();
     }

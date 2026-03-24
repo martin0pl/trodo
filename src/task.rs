@@ -48,4 +48,11 @@ impl Task {
     pub fn get_due_date(&self) -> Option<DateTime<Utc>> {
         self.due_date
     }
+
+    pub fn is_today(&self) -> bool {
+        match self.due_date {
+            Some(date) => date.date_naive() == Utc::now().date_naive(),
+            None => false,
+        }
+    }
 }

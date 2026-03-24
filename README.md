@@ -15,6 +15,7 @@ Download the binary file and put in a directory which is in your PATH
 | `trodo`                                     | Show all tasks without project |
 | `trodo info`                                | Show all info                  |
 | `trodo version`                             | Show the current version       |
+| `trodo today`                               | Show the today's tasks         |
 
 ### Task
 
