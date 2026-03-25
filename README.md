@@ -47,6 +47,10 @@ Download the binary file and put in a directory which is in your PATH
 - `trodo help`
 
 ### Version 1.*
+- `trodo settings`
+  - auto_list_on_changes : bool
+  - auto_delete_on_done : bool
+  - limit_show_tasks_number : i32
 - `trodo` launch the script to do not use the prefix "trodo"
 - `trodo export to markdown`
 
