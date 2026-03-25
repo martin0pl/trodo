@@ -39,14 +39,14 @@ Download the binary file and put in a directory which is in your PATH
 
 ## Roadmap
 
-### Version 0.*
+### Road to Version 1
 - `trodo soon`
 - `trodo late`
 - `trodo list YYYY-MM-DD`
 - `trodo delay num_task YYYY-MM-DD`
 - `trodo help`
 
-### Version 1.*
+### Road to Version 2
 - `trodo settings`
   - auto_list_on_changes : bool
   - auto_delete_on_done : bool
