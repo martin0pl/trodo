@@ -37,6 +37,19 @@ Download the binary file and put in a directory which is in your PATH
 | `trodo delete done`                         | Delete all the done tasks      |
 | `trodo delete all`                          | Delete all the tasks           |
 
+## Roadmap
+
+### Version 0.*
+- `trodo soon`
+- `trodo late`
+- `trodo list YYYY-MM-DD`
+- `trodo delay num_task YYYY-MM-DD`
+- `trodo help`
+
+### Version 1.*
+- `trodo` launch the script to do not use the prefix "trodo"
+- `trodo export to markdown`
+
 ## Save file
 
 The save file is save in a ~/trodo-save directory
