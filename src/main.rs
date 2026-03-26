@@ -63,6 +63,11 @@ fn main() {
         else if args[0] == "tomorrow" {
             app.show_tomorrow_tasks();
         }
+        // trodo list YYYY-MM-DD
+        else if args[0] == "list" && args.len() == 2 {
+            let date = args[1].clone();
+            app.show_tasks_for_date(&date);
+        }
         // trodo new task "task name"
         else if args[0] == "new" && args[1] == "task" && args.len() == 3 {
 

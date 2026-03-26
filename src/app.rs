@@ -2,7 +2,7 @@ use std::fs;
 use serde::{Serialize, Deserialize};
 use std::path::Path;
 use std::env;
-use chrono::{Utc, Duration};
+use chrono::{Utc, Duration, NaiveDate};
 
 use crate::Task;
 
@@ -132,10 +132,10 @@ impl App {
     pub fn show_late_tasks(&self) {
         let today = Utc::now().date_naive();
 
-        for task in &self.tasks {
-            if let Some(due) = task.get_due_date() {
+        for i in 0..self.tasks.len() {
+            if let Some(due) = self.tasks[i].get_due_date() {
                 if due.date_naive() < today {
-                    println!("{}", task.preparation_affichage());
+                    println!("{} - {}", i, &self.tasks[i].preparation_affichage());
                 }
             }
         }
@@ -144,13 +144,24 @@ impl App {
     pub fn show_tomorrow_tasks(&self) {
         let tomorrow = Utc::now().date_naive() + Duration::days(1);
 
-        for task in &self.tasks {
-            if let Some(due) = task.get_due_date() {
+        for i in 0..self.tasks.len() {
+            if let Some(due) = &self.tasks[i].get_due_date() {
                 if due.date_naive() == tomorrow {
-                    println!("{}", task.preparation_affichage());
+                    println!("{} - {}", i, &self.tasks[i].preparation_affichage());
                 }
             }
         }
     }
 
+    pub fn show_tasks_for_date(&self, date: &str) {
+        let parsed_date = NaiveDate::parse_from_str(date, "%Y-%m-%d").unwrap();
+
+        for i in 0..self.tasks.len() {
+            if let Some(due) = &self.tasks[i].get_due_date() {
+                if due.date_naive() == parsed_date {
+                    println!("{} - {}", i, &self.tasks[i].preparation_affichage());
+                }
+            }
+        }
+    }
 }
