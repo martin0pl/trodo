@@ -42,12 +42,12 @@ impl App {
         }
     }
 
-    pub fn show_today_tasks(&self) {
+    pub fn show_today_and_late_tasks(&self) {
         let mut one_today_task = false;
 
         if self.tasks.len() > 0 {
             for i in 0..self.tasks.len() {
-                if self.tasks[i].is_today() {
+                if self.tasks[i].is_today() || self.tasks[i].is_late() {
                     one_today_task = true;
                     println!("{} - {}", i, &self.tasks[i].preparation_affichage());
                 }

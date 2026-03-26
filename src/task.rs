@@ -55,4 +55,11 @@ impl Task {
             None => false,
         }
     }
+
+    pub fn is_late(&self) -> bool {
+        match self.due_date {
+            Some(date) => date.date_naive() < Utc::now().date_naive(),
+            None => false,
+        }
+    }
 }
