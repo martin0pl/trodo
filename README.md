@@ -55,9 +55,6 @@ Download the binary file and put in a directory which is in your PATH
 
 ## Roadmap
 
-### Road to Version 1
-- `trodo help`
-
 ### Road to Version 2
 - `trodo settings`
   - auto_list_on_changes : bool
