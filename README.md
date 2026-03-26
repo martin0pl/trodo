@@ -15,8 +15,9 @@ Download the binary file and put in a directory which is in your PATH
 | `trodo`                                     | Show all tasks without project   |
 | `trodo info`                                | Show all info                    |
 | `trodo version`                             | Show the current version         |
+| `trodo help`                                | Show this help message           |
 
-### Task
+### Task Display
 
 | Command                                     | Action                                  |
 | :-----------------------------------------: | :-------------------------------------: |
@@ -26,19 +27,29 @@ Download the binary file and put in a directory which is in your PATH
 | `trodo tomorrow`                            | Show the tomorrow's tasks               |
 | `trodo soon`                                | Show the tasks in the next 7 days       |
 | `trodo late`                                | Show late tasks                         |
+
+### Task Creation
+
+| Command                                     | Action                                  |
+| :-----------------------------------------: | :-------------------------------------: |
 | `trodo new task "task name"`                | Add a new task                          |
 | `trodo new task "task name" "YYYY-MM-DD"`   | Add a new task with due date            |
 | `trodo new task "task name" today`          | Add a task to do today                  |
 | `trodo new task "task name" tomorrow`       | Add a task to do tomorrow               |
+
+### Task Management
+
+| Command                                     | Action                                  |
+| :-----------------------------------------: | :-------------------------------------: |
 | `trodo done task_num`                       | Mark a task as done                     |
 | `trodo undone task_num`                     | Mark a task as undone                   |
-| `trodo delete task_num`                     | Delete the task                         |
 | `trodo delay task_num YYYY-MM-DD`           | Delay a task to a day                   |
 
-### General delete
+### Deletion
 
 | Command                                     | Action                         |
 | :-----------------------------------------: | :----------------------------: |
+| `trodo delete task_num`                     | Delete the task                |
 | `trodo delete done`                         | Delete all the done tasks      |
 | `trodo delete all`                          | Delete all the tasks           |
 
