@@ -2,6 +2,7 @@ use std::fs;
 use serde::{Serialize, Deserialize};
 use std::path::Path;
 use std::env;
+use chrono::{Utc, Duration};
 
 use crate::Task;
 
@@ -114,5 +115,17 @@ impl App {
 
     pub fn get_nb_tasks (&self) -> usize {
         self.tasks.len()
+    }
+
+    pub fn show_soon_tasks(&self) {
+        let seven_days_from_now = Utc::now().date_naive() + Duration::days(7);
+
+        for task in &self.tasks {
+            if let Some(due) = task.get_due_date() {
+                if due.date_naive() <= seven_days_from_now {
+                    println!("{}", task.preparation_affichage());
+                }
+            }
+        }
     }
 }

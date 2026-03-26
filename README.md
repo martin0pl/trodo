@@ -10,12 +10,13 @@ Download the binary file and put in a directory which is in your PATH
 
 ### General
 
-| Command                                     | Action                         |
-| :-----------------------------------------: | :----------------------------: |
-| `trodo`                                     | Show all tasks without project |
-| `trodo info`                                | Show all info                  |
-| `trodo version`                             | Show the current version       |
-| `trodo today`                               | Show the today's tasks         |
+| Command                                     | Action                                       |
+| :-----------------------------------------: | :------------------------------------------: |
+| `trodo`                                     | Show all tasks without project               |
+| `trodo info`                                | Show all info                                |
+| `trodo version`                             | Show the current version                     |
+| `trodo today`                               | Show the today's tasks                       |
+| `trodo soon`                                | Show the tasks in the next 7 days            |
 
 ### Task
 
@@ -40,7 +41,6 @@ Download the binary file and put in a directory which is in your PATH
 ## Roadmap
 
 ### Road to Version 1
-- `trodo soon`
 - `trodo late`
 - `trodo list YYYY-MM-DD`
 - `trodo delay num_task YYYY-MM-DD`
