@@ -10,29 +10,29 @@ Download the binary file and put in a directory which is in your PATH
 
 ### General
 
-| Command                                     | Action                                       |
-| :-----------------------------------------: | :------------------------------------------: |
-| `trodo`                                     | Show all tasks without project               |
-| `trodo info`                                | Show all info                                |
-| `trodo version`                             | Show the current version                     |
-| `trodo today`                               | Show the today's tasks                       |
-| `trodo tomorrow`                            | Show the tomorrow's tasks                    |
-| `trodo soon`                                | Show the tasks in the next 7 days            |
-| `trodo late`                                | Show late tasks                              |
-| `trodo list YYYY-MM-DD`                     | Show tasks at the specify date               |
+| Command                                     | Action                           |
+| :-----------------------------------------: | :------------------------------: |
+| `trodo`                                     | Show all tasks without project   |
+| `trodo info`                                | Show all info                    |
+| `trodo version`                             | Show the current version         |
 
 ### Task
 
-| Command                                     | Action                         |
-| :-----------------------------------------: | :----------------------------: |
-| `trodo list`                                | Show all tasks without project |
-| `trodo new task "task name"`                | Add a new task                 |
-| `trodo new task "task name" "YYYY-MM-DD"`   | Add a new task with due date   |
-| `trodo new task "task name" today`          | Add a task to do today         |
-| `trodo new task "task name" tomorrow`       | Add a task to do tomorrow      |
-| `trodo done task_num`                       | Mark a task as done            |
-| `trodo undone task_num`                     | Mark a task as undone          |
-| `trodo delete task_num`                     | Delete the task                |
+| Command                                     | Action                            |
+| :-----------------------------------------: | :-------------------------------: |
+| `trodo list`                                | Show all tasks without project    |
+| `trodo list YYYY-MM-DD`                     | Show tasks at the specify date    |
+| `trodo today`                               | Show the today's tasks            |
+| `trodo tomorrow`                            | Show the tomorrow's tasks         |
+| `trodo soon`                                | Show the tasks in the next 7 days |
+| `trodo late`                                | Show late tasks                   |
+| `trodo new task "task name"`                | Add a new task                    |
+| `trodo new task "task name" "YYYY-MM-DD"`   | Add a new task with due date      |
+| `trodo new task "task name" today`          | Add a task to do today            |
+| `trodo new task "task name" tomorrow`       | Add a task to do tomorrow         |
+| `trodo done task_num`                       | Mark a task as done               |
+| `trodo undone task_num`                     | Mark a task as undone             |
+| `trodo delete task_num`                     | Delete the task                   |
 
 ### General delete
 
