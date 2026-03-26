@@ -15,7 +15,7 @@ Download the binary file and put in a directory which is in your PATH
 | `trodo`                                     | Show all info                    |
 | `trodo info`                                | Show all info                    |
 | `trodo version`                             | Show the current version         |
-| `trodo help`                                | Show this help message           |
+| `trodo help`                                | Show the help message            |
 
 ### Task Display
 
