@@ -143,25 +143,35 @@ impl App {
 
     pub fn show_tomorrow_tasks(&self) {
         let tomorrow = Utc::now().date_naive() + Duration::days(1);
+        let mut one_today_task = false;
 
         for i in 0..self.tasks.len() {
             if let Some(due) = &self.tasks[i].get_due_date() {
                 if due.date_naive() == tomorrow {
                     println!("{} - {}", i, &self.tasks[i].preparation_affichage());
+                    one_today_task = true;
                 }
             }
+        }
+        if !one_today_task {
+            println!("No tasks for tomorrow.");
         }
     }
 
     pub fn show_tasks_for_date(&self, date: &str) {
         let parsed_date = NaiveDate::parse_from_str(date, "%Y-%m-%d").unwrap();
+        let mut one_day_task = false;
 
         for i in 0..self.tasks.len() {
             if let Some(due) = &self.tasks[i].get_due_date() {
                 if due.date_naive() == parsed_date {
                     println!("{} - {}", i, &self.tasks[i].preparation_affichage());
+                    one_day_task = true;
                 }
             }
+        }
+        if !one_day_task {
+            println!("No tasks for this date.");
         }
     }
 
