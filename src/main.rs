@@ -32,15 +32,15 @@ fn main() {
         // Commands
 
         // trodo list
-        if args[0] == "list" && args.len() == 1 {
+        if args.len() == 1 && args[0] == "list" {
             app.show_tasks();
         }
         // trodo version
-        else if args[0] == "version" {
+        else if args.len() == 1 && args[0] == "version" {
             println!("Version : {}",VERSION);
         }
         // trodo info
-        else if args[0] == "info" {
+        else if args.len() == 1 && args[0] == "info" {
             println!("Trodo");
             println!("Developper : martin0pl");
             println!("Programming language : Rust");
@@ -48,23 +48,23 @@ fn main() {
             println!("Github repository : https://github.com/martin0pl/trodo");
         }
         // trodo today
-        else if args[0] == "today" {
+        else if args.len() == 1 && args[0] == "today" {
             app.show_today_and_late_tasks();
         }
         // trodo soon
-        else if args[0] == "soon" {
+        else if args.len() == 1 && args[0] == "soon" {
             app.show_soon_tasks();
         }
         // trodo late
-        else if args[0] == "late" {
+        else if args.len() == 1 && args[0] == "late" {
             app.show_late_tasks();
         }
         // trodo tomorrow
-        else if args[0] == "tomorrow" {
+        else if args.len() == 1 && args[0] == "tomorrow" {
             app.show_tomorrow_tasks();
         }
         // trodo help
-        else if args[0] == "help" {
+        else if args.len() == 1 && args[0] == "help" {
             println!("Trodo Commands:");
 
             println!("General:");
@@ -98,12 +98,12 @@ fn main() {
             println!("  trodo delete all                          : Delete all the tasks");
         }
         // trodo list YYYY-MM-DD
-        else if args[0] == "list" && args.len() == 2 {
+        else if args.len() == 2 && args[0] == "list" {
             let date = args[1].clone();
             app.show_tasks_for_date(&date);
         }
         // trodo delay task_num YYYY-MM-DD
-        else if args[0] == "delay" && args.len() == 3 {
+        else if args.len() == 3 && args[0] == "delay" {
             let task_id = args[1].parse::<usize>().unwrap();
 
             let mut date_str = args[2].clone();
@@ -119,7 +119,7 @@ fn main() {
             println!("Task delayed !");
         }
         // trodo new task "task name"
-        else if args[0] == "new" && args[1] == "task" && args.len() == 3 {
+        else if args.len() == 3 && args[0] == "new" && args[1] == "task" {
 
             let title = args[2].clone();
 
@@ -130,7 +130,7 @@ fn main() {
             println!("Task added !");
         }
         // trodo new task "task name" today
-        else if args[0] == "new" && args[1] == "task" && args[3] == "today" {
+        else if args.len() == 4 && args[0] == "new" && args[1] == "task" && args[3] == "today" {
             let title = args[2].clone();
             let due_date = Some(Utc::now());
 
@@ -141,7 +141,7 @@ fn main() {
             println!("Task added !");
         }
         // trodo new task "task name" tomorrow
-        else if args[0] == "new" && args[1] == "task" && args[3] == "tomorrow" {
+        else if args.len() == 4 && args[0] == "new" && args[1] == "task" && args[3] == "tomorrow" {
             let title = args[2].clone();
             let due_date = Some(Utc::now() + TimeDelta::try_days(1).expect("Invalid duration"));
 
@@ -152,7 +152,7 @@ fn main() {
             println!("Task added !");
         }
         // trodo new task "task name" "YYYY-MM-DD"
-        else if args[0] == "new" && args[1] == "task" {
+        else if args.len() == 4 && args[0] == "new" && args[1] == "task" {
 
             let title = args[2].clone();
             let mut due_date = None;
@@ -169,7 +169,7 @@ fn main() {
             println!("Task added !");
         }
         // trodo done task_num
-        else if args[0] == "done"{
+        else if args.len() == 2 && args[0] == "done" {
             let indice = args[1].parse::<usize>().unwrap_or(0);
 
             if indice < app.get_nb_tasks() {
@@ -179,7 +179,7 @@ fn main() {
             }
         }
         // trodo undone task_num
-        else if args[0] == "undone"{
+        else if args.len() == 2 && args[0] == "undone" {
             let indice = args[1].parse::<usize>().unwrap_or(0);
 
             if indice < app.get_nb_tasks() {
@@ -189,13 +189,13 @@ fn main() {
             }
         }
         // trodo delete done
-        else if args[0] == "delete" && args[1] == "done" {
+        else if args.len() == 2 && args[0] == "delete" && args[1] == "done" {
             app.delete_done();
 
             app.save(&save_file);
         }
         // trodo delete all
-        else if args[0] == "delete" && args[1] == "all" {
+        else if args.len() == 2 && args[0] == "delete" && args[1] == "all" {
 
             println!("Are you sur to delete all your tasks ? y for yes or n for no");
 
@@ -217,7 +217,7 @@ fn main() {
             }
         }
         // trodo delete task_num
-        else if args[0] == "delete"{
+        else if args.len() == 2 && args[0] == "delete" {
             let indice = args[1].parse::<usize>().unwrap_or(0);
 
             if indice < app.get_nb_tasks() {
