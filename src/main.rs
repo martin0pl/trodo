@@ -17,18 +17,19 @@ fn main() {
 
     let mut app = App::load_or_create(&save_file);
 
-    let args: Vec<String> = env::args().collect();
+    let args: Vec<String> = env::args().skip(1).collect();
 
     // If there is no command
-    if args.len() == 1
+    if args.len() == 0
     {
-        app.show_tasks();
+        println!("Trodo");
+        println!("Developper : martin0pl");
+        println!("Programming language : Rust");
+        println!("Version : {}",VERSION);
+        println!("Github repository : https://github.com/martin0pl/trodo");
     }
     else
     {
-        // Ignore the first argument which is the name of the program
-        let args: Vec<String> = args[1..].to_vec();
-
         // Commands
 
         // trodo list
