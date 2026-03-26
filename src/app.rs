@@ -128,4 +128,16 @@ impl App {
             }
         }
     }
+
+    pub fn show_late_tasks(&self) {
+        let today = Utc::now().date_naive();
+
+        for task in &self.tasks {
+            if let Some(due) = task.get_due_date() {
+                if due.date_naive() < today {
+                    println!("{}", task.preparation_affichage());
+                }
+            }
+        }
+    }
 }
