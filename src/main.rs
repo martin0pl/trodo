@@ -68,7 +68,7 @@ fn main() {
             let date = args[1].clone();
             app.show_tasks_for_date(&date);
         }
-        // trodo delay num_task YYYY-MM-DD
+        // trodo delay task_num YYYY-MM-DD
         else if args[0] == "delay" && args.len() == 3 {
             let task_id = args[1].parse::<usize>().unwrap();
 

@@ -33,7 +33,7 @@ Download the binary file and put in a directory which is in your PATH
 | `trodo done task_num`                       | Mark a task as done                     |
 | `trodo undone task_num`                     | Mark a task as undone                   |
 | `trodo delete task_num`                     | Delete the task                         |
-| `trodo delay num_task YYYY-MM-DD`           | Delay a task to a day                   |
+| `trodo delay task_num YYYY-MM-DD`           | Delay a task to a day                   |
 
 ### General delete
 
