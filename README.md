@@ -60,6 +60,7 @@ Download the binary file and put in a directory which is in your PATH
   - auto_list_on_changes : bool
   - auto_delete_on_done : bool
   - limit_show_tasks_number : i32
+  - auto_clear_terminal : bool
 - `trodo` launch the script to do not use the prefix "trodo"
 - `trodo export to markdown`
 
