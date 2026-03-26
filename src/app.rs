@@ -39,26 +39,26 @@ impl App {
                 println!("{} - {}",i,&self.tasks[i].preparation_affichage());
             }
         } else {
-            println!("No tasks");
+            println!("No tasks.");
         }
     }
 
     pub fn show_today_and_late_tasks(&self) {
-        let mut one_today_task = false;
+        if self.tasks.is_empty() {
+            println!("No tasks.");
+            return;
+        }
 
-        if self.tasks.len() > 0 {
-            for i in 0..self.tasks.len() {
-                if self.tasks[i].is_today() || self.tasks[i].is_late() {
-                    one_today_task = true;
-                    println!("{} - {}", i, &self.tasks[i].preparation_affichage());
-                }
+        let mut one_today_task = false;
+        for i in 0..self.tasks.len() {
+            if self.tasks[i].is_today() || self.tasks[i].is_late() {
+                one_today_task = true;
+                println!("{} - {}", i, &self.tasks[i].preparation_affichage());
             }
         }
 
-        if self.tasks.len() > 0 && !one_today_task {
-            println!("No tasks today");
-        } else if self.tasks.len() == 0 {
-            println!("No tasks");
+        if !one_today_task {
+            println!("No tasks today.");
         }
     }
 
@@ -118,60 +118,94 @@ impl App {
     }
 
     pub fn show_soon_tasks(&self) {
+        if self.tasks.is_empty() {
+            println!("No tasks.");
+            return;
+        }
+
         let seven_days_from_now = Utc::now().date_naive() + Duration::days(7);
+        let mut found = false;
 
         for i in 0..self.tasks.len() {
             if let Some(due) = self.tasks[i].get_due_date() {
                 if due.date_naive() <= seven_days_from_now {
                     println!("{} - {}", i, &self.tasks[i].preparation_affichage());
+                    found = true;
                 }
             }
+        }
+
+        if !found {
+            println!("No tasks soon.");
         }
     }
 
     pub fn show_late_tasks(&self) {
+        if self.tasks.is_empty() {
+            println!("No tasks.");
+            return;
+        }
+
         let today = Utc::now().date_naive();
+        let mut found = false;
 
         for i in 0..self.tasks.len() {
             if let Some(due) = self.tasks[i].get_due_date() {
                 if due.date_naive() < today {
                     println!("{} - {}", i, &self.tasks[i].preparation_affichage());
+                    found = true;
                 }
             }
+        }
+
+        if !found {
+            println!("No late tasks.");
         }
     }
 
     pub fn show_tomorrow_tasks(&self) {
+        if self.tasks.is_empty() {
+            println!("No tasks.");
+            return;
+        }
+
         let tomorrow = Utc::now().date_naive() + Duration::days(1);
-        let mut one_today_task = false;
+        let mut found = false;
 
         for i in 0..self.tasks.len() {
             if let Some(due) = &self.tasks[i].get_due_date() {
                 if due.date_naive() == tomorrow {
                     println!("{} - {}", i, &self.tasks[i].preparation_affichage());
-                    one_today_task = true;
+                    found = true;
                 }
             }
         }
-        if !one_today_task {
-            println!("No tasks for tomorrow.");
+
+        if !found {
+            println!("No tasks tomorrow.");
         }
     }
 
     pub fn show_tasks_for_date(&self, date: &str) {
+        if self.tasks.is_empty() {
+            println!("No tasks.");
+            return;
+        }
+
         let parsed_date = NaiveDate::parse_from_str(date, "%Y-%m-%d").unwrap();
-        let mut one_day_task = false;
+        let mut found = false;
 
         for i in 0..self.tasks.len() {
             if let Some(due) = &self.tasks[i].get_due_date() {
                 if due.date_naive() == parsed_date {
                     println!("{} - {}", i, &self.tasks[i].preparation_affichage());
-                    one_day_task = true;
+                    found = true;
                 }
             }
         }
-        if !one_day_task {
-            println!("No tasks for this date.");
+
+        if !found {
+            println!("No tasks for {}.", date);
         }
     }
 
