@@ -59,6 +59,10 @@ fn main() {
         else if args[0] == "late" {
             app.show_late_tasks();
         }
+        // trodo tomorrow
+        else if args[0] == "tomorrow" {
+            app.show_tomorrow_tasks();
+        }
         // trodo new task "task name"
         else if args[0] == "new" && args[1] == "task" && args.len() == 3 {
 

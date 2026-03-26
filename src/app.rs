@@ -140,4 +140,17 @@ impl App {
             }
         }
     }
+
+    pub fn show_tomorrow_tasks(&self) {
+        let tomorrow = Utc::now().date_naive() + Duration::days(1);
+
+        for task in &self.tasks {
+            if let Some(due) = task.get_due_date() {
+                if due.date_naive() == tomorrow {
+                    println!("{}", task.preparation_affichage());
+                }
+            }
+        }
+    }
+
 }

@@ -16,6 +16,7 @@ Download the binary file and put in a directory which is in your PATH
 | `trodo info`                                | Show all info                                |
 | `trodo version`                             | Show the current version                     |
 | `trodo today`                               | Show the today's tasks                       |
+| `trodo tomorrow`                            | Show the tomorrow's tasks                    |
 | `trodo soon`                                | Show the tasks in the next 7 days            |
 | `trodo late`                                | Show late tasks                              |
 
