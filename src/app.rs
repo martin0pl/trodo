@@ -2,7 +2,7 @@ use std::fs;
 use serde::{Serialize, Deserialize};
 use std::path::Path;
 use std::env;
-use chrono::{Utc, Duration, NaiveDate};
+use chrono::{Utc, Duration, NaiveDate, DateTime};
 
 use crate::Task;
 
@@ -163,5 +163,18 @@ impl App {
                 }
             }
         }
+    }
+
+    pub fn delay_task(&mut self, task_id: usize, date: DateTime<Utc>) {
+        self.tasks[task_id].delay(date);
+
+        self.tasks.sort_by(|a, b| {
+            match (a.get_due_date(), b.get_due_date()) {
+                (Some(da), Some(db)) => da.cmp(&db),
+                (Some(_), None) => std::cmp::Ordering::Less,
+                (None, Some(_)) => std::cmp::Ordering::Greater,
+                (None, None) => std::cmp::Ordering::Equal,
+            }
+        });
     }
 }

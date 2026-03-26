@@ -5,7 +5,7 @@ use task::Task;
 use app::App;
 
 use std::env;
-use chrono::{Utc, TimeZone, TimeDelta};
+use chrono::{Utc, TimeZone, TimeDelta, DateTime};
 use std::io;
 
 fn main() {
@@ -67,6 +67,22 @@ fn main() {
         else if args[0] == "list" && args.len() == 2 {
             let date = args[1].clone();
             app.show_tasks_for_date(&date);
+        }
+        // trodo delay num_task YYYY-MM-DD
+        else if args[0] == "delay" && args.len() == 3 {
+            let task_id = args[1].parse::<usize>().unwrap();
+
+            let mut date_str = args[2].clone();
+            date_str.push_str(" 12:00:00");
+            let mut date: Option<DateTime<Utc>> = None;
+            if let Ok(naive_date) = chrono::NaiveDateTime::parse_from_str(&date_str, "%Y-%m-%d %H:%M:%S") {
+                date = Some(Utc.from_utc_datetime(&naive_date));
+            }
+
+            app.delay_task(task_id, date.expect("REASON"));
+
+            app.save(&save_file);
+            println!("Task delayed !");
         }
         // trodo new task "task name"
         else if args[0] == "new" && args[1] == "task" && args.len() == 3 {

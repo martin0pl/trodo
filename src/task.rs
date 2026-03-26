@@ -81,4 +81,8 @@ impl Task {
             None => false,
         }
     }
+
+    pub fn delay(&mut self, date: DateTime<Utc>) {
+        self.due_date = Some(date);
+    }
 }
