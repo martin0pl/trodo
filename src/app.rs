@@ -120,10 +120,10 @@ impl App {
     pub fn show_soon_tasks(&self) {
         let seven_days_from_now = Utc::now().date_naive() + Duration::days(7);
 
-        for task in &self.tasks {
-            if let Some(due) = task.get_due_date() {
+        for i in 0..self.tasks.len() {
+            if let Some(due) = self.tasks[i].get_due_date() {
                 if due.date_naive() <= seven_days_from_now {
-                    println!("{}", task.preparation_affichage());
+                    println!("{} - {}", i, &self.tasks[i].preparation_affichage());
                 }
             }
         }
