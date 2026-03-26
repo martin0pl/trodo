@@ -12,7 +12,7 @@ Download the binary file and put in a directory which is in your PATH
 
 | Command                                     | Action                           |
 | :-----------------------------------------: | :------------------------------: |
-| `trodo`                                     | Show all tasks without project   |
+| `trodo`                                     | Show all info                    |
 | `trodo info`                                | Show all info                    |
 | `trodo version`                             | Show the current version         |
 | `trodo help`                                | Show this help message           |
