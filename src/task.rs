@@ -1,6 +1,6 @@
 use serde::{Serialize, Deserialize};
 
-use chrono::{DateTime, Utc};
+use chrono::{DateTime, Utc, Duration};
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Task {
@@ -20,17 +20,29 @@ impl Task {
 
     pub fn preparation_affichage(&self) -> String {
 
+        let mut result;
+
         let date_str = match &self.due_date {
             Some(date) => date.format("(%Y-%m-%d)").to_string(),
             None => "".to_string(),
         };
 
         if self.done {
-            return format!("[x] {} {}",self.title,date_str);
+            result = format!("[x] {} {}",self.title,date_str);
         }
         else {
-            return format!("[ ] {} {}",self.title,date_str);
+            result = format!("[ ] {} {}",self.title,date_str);
         }
+
+        if self.is_late() {
+            result += " (late)";
+        } else if self.is_today() {
+            result += " (today)";
+        } else if self.is_tomorrow() {
+            result += " (tomorrow)";
+        }
+
+        result
     }
 
     pub fn done(&mut self) {
@@ -59,6 +71,13 @@ impl Task {
     pub fn is_late(&self) -> bool {
         match self.due_date {
             Some(date) => date.date_naive() < Utc::now().date_naive(),
+            None => false,
+        }
+    }
+
+    pub fn is_tomorrow(&self) -> bool {
+        match self.due_date {
+            Some(date) => date.date_naive() == Utc::now().date_naive() + Duration::days(1),
             None => false,
         }
     }
