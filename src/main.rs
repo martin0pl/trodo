@@ -10,7 +10,7 @@ use std::io;
 
 fn main() {
 
-    const VERSION:&str = "0.9";
+    const VERSION:&str = "0.9.0";
 
     let home_dir = env::var("HOME").expect("Impossible to reach HOME directory");
     let save_file = format!("{}/trodo-save/save_trodo.json", home_dir);
