@@ -66,4 +66,4 @@ Download the binary file and put in a directory which is in your PATH
 
 ## Save file
 
-The save file is save in a ~/trodo-save directory
+The save file is ~/.trodo-save.json
