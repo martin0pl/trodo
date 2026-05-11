@@ -6,14 +6,12 @@ use crate::Task;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct App {
-    current_project : i32,
     tasks : Vec<Task>,
 }
 
 impl App {
     pub fn new() -> App {
         Self {
-            current_project : -1,
             tasks : Vec::new(),
         }
     }
