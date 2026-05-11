@@ -87,11 +87,7 @@ impl App {
     }
 
     pub fn delete_done (&mut self) {
-        for i in (0..self.tasks.len()).rev() {
-            if self.tasks[i].get_done() {
-                self.tasks.remove(i);
-            }
-        }
+        self.tasks.retain(|task| !task.get_done());
     }
 
     pub fn delete_all (&mut self) {
