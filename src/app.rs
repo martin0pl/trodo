@@ -1,7 +1,5 @@
 use std::fs;
 use serde::{Serialize, Deserialize};
-use std::path::Path;
-use std::env;
 use chrono::{Utc, Duration, NaiveDate, DateTime};
 
 use crate::Task;
@@ -76,15 +74,6 @@ impl App {
     }
 
     pub fn load_or_create(filename: &str) -> App {
-
-        let home_dir = env::var("HOME").expect("Impossible to reach HOME directory");
-        let full_path = format!("{}/trodo-save", home_dir);
-        let path = Path::new(&full_path);
-
-        // If the folder does not exist, we create it
-        if !path.exists() {
-            let _ = fs::create_dir(path);
-        }
 
         // If the save file does not exist, we create it with an empty App
         if fs::metadata(filename).is_err() {
